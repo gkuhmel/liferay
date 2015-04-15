@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE liferay-portlet-app PUBLIC "-//Liferay//DTD Portlet Application 6.2.0//EN" "http://www.liferay.com/dtd/liferay-portlet-app_6_2_0.dtd">
+
+<liferay-portlet-app>
+	<portlet>
+		<portlet-name>ldapimport-launcher-portlet</portlet-name>
+		<icon>/icon.png</icon>
+		
+		<scheduler-entry>
+			<scheduler-description>LDAP Import Planning</scheduler-description>
+			<scheduler-event-listener-class>fr.gk.liferay.ldap.launcher.cron.LDAPImportScheduler</scheduler-event-listener-class>
+			<trigger>
+				<cron>
+					<cron-trigger-value>0 0/5 * 1/1 * ? *</cron-trigger-value>
+				</cron>
+			</trigger>
+		</scheduler-entry>
+		
+		<control-panel-entry-category>site_administration.configuration</control-panel-entry-category>
+	    <control-panel-entry-weight>1.0</control-panel-entry-weight>
+		<header-portlet-css>/css/main.css</header-portlet-css>
+		<footer-portlet-javascript>/js/main.js</footer-portlet-javascript>
+	</portlet>
+	<role-mapper>
+		<role-name>administrator</role-name>
+		<role-link>Administrator</role-link>
+	</role-mapper>
+	<role-mapper>
+		<role-name>guest</role-name>
+		<role-link>Guest</role-link>
+	</role-mapper>
+	<role-mapper>
+		<role-name>power-user</role-name>
+		<role-link>Power User</role-link>
+	</role-mapper>
+	<role-mapper>
+		<role-name>user</role-name>
+		<role-link>User</role-link>
+	</role-mapper>
+</liferay-portlet-app>
