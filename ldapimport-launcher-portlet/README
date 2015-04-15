@@ -1,0 +1,16 @@
+#################################
+	LDAP IMPORT LAUNCHER
+#################################
+For using this feature, turn off the import in portal-ext.properties ;
+	ldap.import.enabled=false
+    ldap.import.on.startup=false
+
+To specify when the import must start, define the planning using a cron expression :
+- open liferay-portlet.xml in the deployed folder,
+- uncomment the scheduler,
+- Define the cron expression in the cron-trigger-value,
+- restart Liferay or redeploy the portlet
+
+
+To manually launch the import, go to a site, then "Settings".
+The LDAP Import Launcher appears in this section.
